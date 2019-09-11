@@ -1,5 +1,5 @@
 # TO-DO: complete the helpe function below to merge 2 sorted arrays
-arr1 = [3,5,6,4,1]
+arr1 = [3,5,6,4,1,7,9]
 arrA = [8,2]
 arrB = [3]
 
@@ -18,6 +18,7 @@ It's two steps, breaking apart until a sorted array, and then merging until you 
     
 def merge_sort(arr):
     splitArrays = []
+    garbageCollector = []
     # way to save the original array length to know when to stop
     # splitting the array
     if type(arr[0]) is int:
@@ -34,7 +35,10 @@ def merge_sort(arr):
                     print(i)
                     print(splitArrays)
                     print(f"{len(arr[i][:newArr])} + {arr[i][:newArr]} AWYARSTINARST")
-                    splitArrays.append(arr[i][:newArr])
+                    if len(arr[i][:newArr]) == 0:
+                        garbageCollector.append(arr[i][:newArr])
+                    else:
+                        splitArrays.append(arr[i][:newArr])
                     print(f"{i} aaa")
                     print(splitArrays)
                     splitArrays.append(arr[i][newArr:])
@@ -45,7 +49,7 @@ def merge_sort(arr):
    
     if len(splitArrays) >= len(arr1):
         print(len(arr1) % 2)
-        return print(f"{splitArrays} AAAAAAA")
+        return splitArrays
     else:
        merge_sort(splitArrays)
       
